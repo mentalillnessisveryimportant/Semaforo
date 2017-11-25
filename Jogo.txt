@@ -1,0 +1,22 @@
+function _init()
+x=64
+y=64
+z=0
+end
+function _update()
+if(btn(\145)) then
+	if(x<=70)	x+=1
+	if(x>=70) z+=1
+	end
+	
+if(btn(\139)) then
+	if(x<=50)	z-=1
+	if(x>=50) x-=1
+end
+end
+
+function _draw()
+cls()
+map(0+z,0)
+spr(3,x,y)
+end
