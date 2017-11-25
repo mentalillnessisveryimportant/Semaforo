@@ -1,22 +1,53 @@
+pv=1--velocidade do player
+xmeio=64--meio do ecra em x
+ymeio=64--meio do ecra em x
+mv=0.25-- velocidade do map
+pos=xmeio
+function mescerda()--mover para a esquerda
+if(btn(\139)) then
+	if(x<=40)	z-=mv
+	if(x>=40) x-=pv
+	pos-=1
+end
+end
+function flor(x)
+	ret=x+0.5-(x+0.5)%1
+	return ret
+end
+function mdireita()--mover para a direita
+g=mget(pos/8,y/8)
+if(fget(g,1)==false) then
+if(btn(\145)) then
+	if(x<=88)	x+=pv
+	if(x>=88) z+=mv
+	pos+=1
+	end
+	end
+end
+
+
+
+
 function _init()
-x=64
-y=64
+x=xmeio
+y=ymeio
 z=0
 end
+
 function _update()
-if(btn(\145)) then
-	if(x<=70)	x+=1
-	if(x>=70) z+=1
-	end
-	
-if(btn(\139)) then
-	if(x<=50)	z-=1
-	if(x>=50) x-=1
-end
+	mescerda()
+	mdireita()
+
 end
 
 function _draw()
 cls()
 map(0+z,0)
+--print("\135",110,5,8)
+print(x)
+print(g)
+print(p)
+print(f)
 spr(3,x,y)
+music(1,6,4)
 end
